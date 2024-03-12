@@ -9,4 +9,13 @@ public class Bounds {
         yS=0;
         yE=0;
     }
+    public void print(){
+        System.out.println("xs:" + xS + " xe:" + xE + " ys:" + yS + " ye:" + yE);
+    }
+    public void set(Bounds input){
+        xS=input.xS;
+        xE=input.xE;
+        yS=input.yS;
+        yE=input.yE;
+    }
 }

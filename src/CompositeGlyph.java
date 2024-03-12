@@ -10,6 +10,7 @@ public abstract class CompositeGlyph implements Glyph{
     public CompositeGlyph(){
         parent = null;
         children = new ArrayList<>();
+        this.bounds=new Bounds();
     }
     @Override
     public void draw(Window window){
@@ -23,6 +24,7 @@ public abstract class CompositeGlyph implements Glyph{
     public Glyph getChild(int index){
         return this.children.get(index);
     }
+    public int numChild(){return this.children.size();}
     @Override
     public Glyph getParent(){
         return parent;
@@ -32,4 +34,8 @@ public abstract class CompositeGlyph implements Glyph{
         this.parent = parent;
     }
 
+    @Override
+    public Bounds getBounds() {
+        return bounds;
+    }
 }

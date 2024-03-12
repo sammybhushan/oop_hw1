@@ -41,6 +41,14 @@ public class Rectangle implements Glyph{
         return null;
     }
     @Override
+    public void compose(){
+        try {
+            throw new Exception("Invalid");
+        }catch(Exception E){
+            System.out.println("Cannot get child from char glyph");
+        }
+    }
+    @Override
     public Glyph getParent(){
         return this.parent;
     }
@@ -49,12 +57,17 @@ public class Rectangle implements Glyph{
         this.parent = parent;
     }
     @Override
-    public Bounds applyBounds(Bounds cursor) {
+    public void setPosition(Bounds cursor) {
         // take the starting x,y location and set bounds accordingly
         this.bounds.xS = cursor.xS;
         this.bounds.yS = cursor.yS;
         this.bounds.xE = cursor.xS + this.height;
         this.bounds.yE = cursor.yS + this.width;
-        return this.bounds;
+        cursor.xS = this.bounds.xE;
+    }
+
+    @Override
+    public Bounds getBounds() {
+        return bounds;
     }
 }

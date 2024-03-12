@@ -13,6 +13,7 @@ public class Character implements Glyph{
     }
     @Override
     public void draw(Window window) {
+//        window.setContents(this);
         window.drawCharacter(this.character, bounds.xS, bounds.yS);
         System.out.println("DRAWING CHAR " + this.character);
     }
@@ -42,6 +43,14 @@ public class Character implements Glyph{
         return null;
     }
     @Override
+    public void compose(){
+        try {
+            throw new Exception("Invalid");
+        }catch(Exception E){
+            System.out.println("Cannot get child from char glyph");
+        }
+    }
+    @Override
     public Glyph getParent(){
         return this.parent;
     }
@@ -50,12 +59,26 @@ public class Character implements Glyph{
         this.parent = parent;
     }
     @Override
-    public Bounds applyBounds(Bounds cursor) {
+    public void setPosition(Bounds cursor) {
         // take the starting x,y location and set bounds accordingly
         this.bounds.xS = cursor.xS;
         this.bounds.yS = cursor.yS;
         this.bounds.xE = cursor.xS + this.height;
         this.bounds.yE = cursor.yS + this.width;
-        return this.bounds;
+
+        cursor.xS = this.bounds.xE; // update cursor to xS
+//        cursor.xE (un needed???)
+        //cursor.yS =
+        if(cursor.yE < this.bounds.yE){
+            cursor.yE = this.bounds.yE;
+        }
+//        cursor.xE = ;
+//        cursor.yS = ;
+//        cursor.yE = ;
+    }
+
+    @Override
+    public Bounds getBounds() {
+        return bounds;
     }
 }
