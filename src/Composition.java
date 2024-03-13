@@ -1,3 +1,6 @@
+// OOP DESIGN PATTERNS:
+// Strategy
+
 public abstract class Composition extends CompositeGlyph{
     // This is a group of glyphs (composite) that can be composed (call composer)
     Compositor compositor;

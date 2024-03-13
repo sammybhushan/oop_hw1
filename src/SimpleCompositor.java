@@ -1,3 +1,6 @@
+// OOP DESIGN PATTERNS:
+// Composite
+
 public class SimpleCompositor implements Compositor{
 
     private Composition composition;
@@ -18,6 +21,7 @@ public class SimpleCompositor implements Compositor{
         for(int i=0; i < this.composition.numChild(); i++) {
             this.composition.getChild(i).setPosition(cursor);
             this.composition.getChild(i).compose(); //composed now
+            //this.cursor.xS
         }
         this.composition.setCursor(cursor); // if this composition has a size (like border), it will adjust accordingly
 

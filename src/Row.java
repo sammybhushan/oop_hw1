@@ -9,14 +9,6 @@ public class Row extends Composition{
             this.getChild(i).draw(window);
         }
     }
-    public Bounds applyBounds(Bounds cursor) {
-        this.bounds.xS = cursor.xS;
-        this.bounds.yS = cursor.yS;
-        //for applyBounds()
-        this.bounds.xE = cursor.xE; // cursor will send size of children
-        this.bounds.yE = cursor.yE; // cursor will send size of children
-        return cursor;
-    }
 
     @Override
     public void setCursor(Bounds cursor) {

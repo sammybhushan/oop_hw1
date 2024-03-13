@@ -1,3 +1,5 @@
+// OOP DESIGN PATTERNS:
+// Composite
 public class Character implements Glyph{
     private char character;
     private Glyph parent;

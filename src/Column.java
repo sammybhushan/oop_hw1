@@ -1,3 +1,6 @@
+// OOP DESIGN PATTERNS:
+// Composite
+
 public class Column extends Composition{
     public Column(Compositor compositor) {
         super(compositor);

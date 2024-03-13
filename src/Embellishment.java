@@ -1,3 +1,6 @@
+// OOP DESIGN PATTERNS:
+// Decorator
+// Composite
 abstract class Embellishment extends Composition{
     public Embellishment(Compositor compositor) {
         super(compositor);
@@ -7,6 +10,9 @@ abstract class Embellishment extends Composition{
         if(index != 0){
 //            TODO: throw exception
             System.out.println("WARNING: Attempted to insert multiple glyphs into embellishment");
+        }
+        else{
+            children.add(index,newGlyph);
         }
 
     }

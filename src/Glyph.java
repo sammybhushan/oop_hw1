@@ -1,3 +1,6 @@
+// OOP DESIGN PATTERNS:
+// Decorator
+// Composite
 public interface Glyph {
     void draw(Window window);
     void insert(Glyph newGlyph,int index);
