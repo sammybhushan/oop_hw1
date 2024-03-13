@@ -42,13 +42,21 @@ public class Character implements Glyph{
         }
         return null;
     }
+
+    @Override
+    public void startCompose() {
+        this.getParent().startCompose();
+    }
+
     @Override
     public void compose(){
-        try {
-            throw new Exception("Invalid");
-        }catch(Exception E){
-            System.out.println("Cannot get child from char glyph");
-        }
+        // this doesn't do anything
+        // However, it will be called by the compositor as the end of the recursion
+//        try {
+//            throw new Exception("Invalid");
+//        }catch(Exception E){
+//            System.out.println("Cannot get child from char glyph");
+//        }
     }
     @Override
     public Glyph getParent(){

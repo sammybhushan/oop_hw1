@@ -6,15 +6,18 @@ public abstract class Composition extends CompositeGlyph{
         this.compositor = compositor;
         compositor.setComposition(this);
     }
-    public void compose(){
+    public void startCompose(){
         if(this.getParent() == null){
             // we are at the root, begin composition
             this.compositor.compose();
         }
         else{
             // somewhere in the tree, go up
-            this.getParent().compose();
+            this.getParent().startCompose();
         }
+    }
+    public void compose(){
+        this.compositor.compose();
     }
     @Override
     public void insert(Glyph newGlyph,int index){
@@ -30,5 +33,6 @@ public abstract class Composition extends CompositeGlyph{
         this.bounds.yE = cursor.yE;
 //        cursor;
     }
+    abstract public void setCursor(Bounds cursor);
 
 }

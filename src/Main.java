@@ -19,9 +19,10 @@ public class Main {
 //        System.out.println("Testing");
 
         Window myWindow = new SwingWindow("First Window");
-        Compositor mySimpleCompositor = new SimpleCompositor();
-        Row myRow = new Row(mySimpleCompositor);
-        //Row myRow2 = new Row(mySimpleCompositor);
+        Row myRow = new Row(new SimpleCompositor());
+        Row myRow2 = new Row(new SimpleCompositor());
+        Column myCol = new Column(new SimpleCompositor());
+
 
         Character a = new Character('A',myWindow);
         Character b = new Character('B',myWindow);
@@ -30,14 +31,18 @@ public class Main {
         Character e = new Character('E',myWindow);
         Character f = new Character('F',myWindow);
 
+        Border myBorder = new Border(new SimpleCompositor());
         myRow.insert(a,0);
         myRow.insert(b,1);
         myRow.insert(c,2);
-        myRow.insert(d,3);
-        myRow.insert(e,4);
-        myRow.insert(f,5);
+        myRow2.insert(d,0);
+        myRow2.insert(e,1);
+        myRow2.insert(f,2);
+        myBorder.insert(myRow,0);
+        myCol.insert(myBorder,0);
+        myCol.insert(myRow2,1);
 
-        myWindow.setContents(myRow);
+        myWindow.setContents(myCol);
 
     }
 }
