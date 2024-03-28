@@ -13,6 +13,16 @@ public class Scroller extends Embellishment{
     }
 
     @Override
+    public void setPosition(Bounds cursor) {
+
+    }
+
+    @Override
+    public void updateBounds(Bounds cursor, Bounds child) {
+
+    }
+
+    @Override
     public void setCursor(Bounds cursor) {
 
     }

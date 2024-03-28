@@ -16,6 +16,23 @@ public class SimpleCompositor implements Compositor{
 
     @Override
     public void compose() {
+        // Find out where we begin, and update our cursor
+        cursor.set(this.composition.getBounds());
+        for(int i=0; i < this.composition.numChild(); i++) {
+            // set child bounds based on cursor
+            this.composition.getChild(i).setPosition(cursor);
+            // compose child (recursive)
+            this.composition.getChild(i).compose();
+            // update parent with these new bounds
+            this.composition.updateBounds(cursor,this.composition.getChild(i).getBounds());
+        }
+        this.composition.bounds.print();
+
+
+    }
+
+        /*
+
         cursor.set(this.composition.getBounds()); // this cursor is now at the starting point of this composition
         this.composition.setPosition(cursor); // if this composition has a size (like border), it will adjust accordingly
         for(int i=0; i < this.composition.numChild(); i++) {
@@ -63,4 +80,5 @@ public class SimpleCompositor implements Compositor{
     }
         // ask parent to adjust itself, based on cursor
 
+         */
 }

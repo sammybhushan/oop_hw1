@@ -18,11 +18,29 @@ public class Border extends Embellishment{
 
     @Override
     public void setPosition(Bounds cursor) {
-        super.setPosition(cursor);
-        cursor.xS=bounds.xS+width;
-        cursor.yS=bounds.yS+width;
-        cursor.xE=cursor.xE;
-        cursor.yE=cursor.yS;
+        // x
+        this.bounds.xS = cursor.xS;
+        this.bounds.xE = cursor.xS + this.width*2;
+        cursor.xS = this.bounds.xS + this.width;
+        // y
+        this.bounds.yS = cursor.yS;
+        this.bounds.yE = cursor.yS + this.width*2;
+        cursor.yS = this.bounds.yS + this.width;
+    }
+
+    @Override
+    public void updateBounds(Bounds cursor, Bounds child) {
+        // passing the current cursor, and the new bounds of the child
+
+        // if row got longer, update bounds and cursor
+        if (this.bounds.xE > child.xE){
+            this.bounds.xE = child.xE + this.width;
+            cursor.xS = child.xE;
+        }
+        // if row got taller, update bounds but keep cursor the same
+        if (this.bounds.yE > child.yE){
+            this.bounds.yE = child.yE+this.width;
+        }
     }
 
     @Override

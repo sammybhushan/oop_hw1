@@ -29,13 +29,9 @@ public abstract class Composition extends CompositeGlyph{
         compose();
     }
     @Override
-    public void setPosition(Bounds cursor) {
-        this.bounds.xS = cursor.xS;
-        this.bounds.yS = cursor.yS;
-        this.bounds.xE = cursor.xE;
-        this.bounds.yE = cursor.yE;
-//        cursor;
-    }
+    public abstract void setPosition(Bounds cursor);
+    public abstract void updateBounds(Bounds cursor, Bounds child);
+
     abstract public void setCursor(Bounds cursor);
 
 }
