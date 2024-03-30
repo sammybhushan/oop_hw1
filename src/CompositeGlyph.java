@@ -13,12 +13,10 @@ public abstract class CompositeGlyph implements Glyph{
         this.bounds=new Bounds();
     }
     @Override
-    public void draw(Window window){
-
-    }
-    @Override
-    public void remove(Glyph glyph){
+    public int remove(Glyph glyph){
+        int value = this.children.indexOf(glyph);
         this.children.remove(glyph);
+        return value;
     }
     @Override
     public Glyph getChild(int index){

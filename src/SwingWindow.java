@@ -1,8 +1,7 @@
-//package window;
-//
-//import glyph.*;
 
+import java.util.*;
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 
 public class SwingWindow implements Window {
@@ -14,6 +13,7 @@ public class SwingWindow implements Window {
   private Glyph _glyph;
   private Pane _pane;
   private JFrame _jFrame;
+  private Color _color;
   private Graphics _graphics;
   private FontMetrics _fm;
 
@@ -34,10 +34,11 @@ public class SwingWindow implements Window {
     _jFrame=new JFrame(title);
     _jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     _jFrame.setJMenuBar(new JMenuBar());
-    _jFrame.pack();
+    _jFrame.pack(); // from: aaronrussell@u.boisestate.edu
     _jFrame.setSize(width,height);
     _jFrame.setVisible(true);
     _fm=_jFrame.getGraphics().getFontMetrics();
+    _color=_jFrame.getGraphics().getColor();
   }
 
   public int charWidth(char c) {
@@ -77,6 +78,26 @@ public class SwingWindow implements Window {
   public void addScrollBar(int x, int y, int width, int height) {
     _graphics.drawRect(x,y,width,height);        // bar
     _graphics.fillRect(x+2,y+2,width-3,width-3); // handle
+  }
+
+  public Color color(String c) {
+    if (c.equalsIgnoreCase("red"))
+      return Color.red;
+    if (c.equalsIgnoreCase("green"))
+      return Color.green;
+    return _color;
+  }
+
+  public void drawButton(int x, int y, int width, int height, String color) {
+    _graphics.setColor(color(color));
+    _graphics.fillRect(x,y,width,height);
+    _graphics.setColor(_color);
+  }
+
+  public void drawLabel(int x, int y, int width, int height, String color) {
+    _graphics.setColor(color(color));
+    _graphics.drawRect(x,y,width,height);
+    _graphics.setColor(_color);
   }
 
 }

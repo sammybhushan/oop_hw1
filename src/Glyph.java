@@ -4,7 +4,7 @@
 public interface Glyph {
     void draw(Window window);
     void insert(Glyph newGlyph,int index);
-    void remove(Glyph glyph);
+    int remove(Glyph glyph);
     void startCompose();
     void compose();
     Glyph getChild(int index);

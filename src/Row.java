@@ -30,12 +30,12 @@ public class Row extends Composition{
         // passing the current cursor, and the new bounds of the child
 
         // if row got longer, update bounds and cursor
-        if (this.bounds.xE > child.xE){
+        if (this.bounds.xE < child.xE){
             this.bounds.xE = child.xE;
             cursor.xS = child.xE;
         }
         // if row got taller, update bounds but keep cursor the same
-        if (this.bounds.yE > child.yE){
+        if (this.bounds.yE < child.yE){
             this.bounds.yE = child.yE;
         }
     }

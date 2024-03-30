@@ -24,11 +24,12 @@ public class Rectangle implements Glyph{
         }
     }
     @Override
-    public void remove(Glyph glyph){
+    public int remove(Glyph glyph){
         try {
             throw new Exception("Invalid Remove");
         }catch(Exception E){
             System.out.println("Cannot remove from rect glyph");
+            return 1;
         }
     }
     @Override

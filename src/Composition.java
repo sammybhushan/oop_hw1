@@ -26,7 +26,7 @@ public abstract class Composition extends CompositeGlyph{
     public void insert(Glyph newGlyph,int index){
         newGlyph.setParent(this);
         this.children.add(index,newGlyph);
-        compose();
+        startCompose();
     }
     @Override
     public abstract void setPosition(Bounds cursor);

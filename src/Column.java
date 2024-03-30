@@ -20,14 +20,14 @@ public class Column extends Composition{
         // passing the current cursor, and the new bounds of the child
 
         // if col got longer, update bounds
-        if (this.bounds.xE > child.xE){
+        if (this.bounds.xE < child.xE){
             this.bounds.xE = child.xE;
         }
         // if col got taller, update bounds and cursor
-        if (this.bounds.yE > child.yE){
+        if (this.bounds.yE < child.yE){
             this.bounds.yE = child.yE;
-            cursor.yS = this.bounds.yE; // column start moves down for next child
         }
+        cursor.yS = this.bounds.yE; // column start moves down for next child
     }
 
     @Override
