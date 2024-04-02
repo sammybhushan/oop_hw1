@@ -1,4 +1,4 @@
-package window;
+//package window;
 
 import java.util.*;
 import java.awt.*;
