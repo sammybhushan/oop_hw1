@@ -1,6 +1,7 @@
 public class Rectangle implements Glyph{
-    private Glyph parent;
+    private Window window;
     private Bounds bounds;
+    private Glyph parent;
 
     private int height;
     private int width;
@@ -78,5 +79,8 @@ public class Rectangle implements Glyph{
     @Override
     public Bounds getBounds() {
         return bounds;
+    }
+        public void setSize(){
+        // do nothing; the size of a rectangle is fixed from a compose standpoint
     }
 }

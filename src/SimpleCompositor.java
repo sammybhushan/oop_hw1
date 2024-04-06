@@ -4,11 +4,7 @@
 public class SimpleCompositor implements Compositor{
 
     private Composition composition;
-    Bounds cursor;
-
-    public SimpleCompositor() {
-        cursor = new Bounds();
-    }
+    //Bounds cursor;
     @Override
     public void setComposition(Composition compositionGlyph) {
         this.composition = compositionGlyph;
@@ -16,9 +12,12 @@ public class SimpleCompositor implements Compositor{
 
     @Override
     public void compose() {
+        Bounds cursor = new Bounds();
         // Find out where we begin, and update our cursor
         cursor.set(this.composition.getBounds());
         for(int i=0; i < this.composition.numChild(); i++) {
+            // ask child to set size based on window
+            this.composition.setSize();
             // set child bounds based on cursor
             this.composition.getChild(i).setPosition(cursor);
             // compose child (recursive)

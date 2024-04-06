@@ -2,15 +2,15 @@
 // Composite
 public class Character implements Glyph{
     private char character;
-    private Glyph parent;
+    private Window window;
     private Bounds bounds;
+    private Glyph parent;
     private int height;
     private int width;
     public Character(char newChar,Window window)
     {
         character = newChar;
-        height = window.charHeight(newChar);
-        width = window.charWidth(newChar);
+        this.window = window;
         bounds = new Bounds();
     }
     @Override
@@ -83,9 +83,10 @@ public class Character implements Glyph{
         if(cursor.yE < this.bounds.yE){
             cursor.yE = this.bounds.yE;
         }
-//        cursor.xE = ;
-//        cursor.yS = ;
-//        cursor.yE = ;
+    }
+    public void setSize(){
+        height = this.window.charHeight(character);
+        width = window.charWidth(character);
     }
 
     @Override

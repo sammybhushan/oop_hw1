@@ -36,4 +36,9 @@ public abstract class CompositeGlyph implements Glyph{
     public Bounds getBounds() {
         return bounds;
     }
+
+    public void setSize(){
+        // do nothing here either
+        // from a compose standpoint this can be 0?
+    }
 }
