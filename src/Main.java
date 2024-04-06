@@ -4,7 +4,7 @@ import java.io.Console;
 public class Main {
     public static void main(String[] args ){
 
-        Window myWindow = new SwingWindow("First Window");
+        Window myWindow = new SwingWindow("First Window",);
 
         // Initial Glyphs & Compositors
         // Composition and

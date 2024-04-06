@@ -1,0 +1,6 @@
+# NOTES FOR WHAT TO DO
+
+1. Make it so that a row can be created with a string of characters directly
+2. Switch it so that the size of the characters are checked at the start of the simplecompositor step
+3.
+
