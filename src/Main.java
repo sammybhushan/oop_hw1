@@ -31,25 +31,26 @@ public class Main {
         boolean debugTest = false;
 
         if (debugTest){
-
             myRow.insert(a,0);
             myRow.insert(b,1);
-            myRow.insert(c,2);
-
-//        myRow.insert(myBorder,0);
             myBorder.insert(myRow,0);
-//
-            myButton.insert(myRow2,0);
-            myCol.insert(myButton,1);
-//        myWindow.setContents(myRow);
+            myBorder.insert(c,2);
             myCol.insert(myBorder,0);
-//        myB.insert(myBorder,0);
-//        myWindow.setContents(myRow);
-//        myWindow.setContents(myRow);
-//        myWindow.setContents(myRow2);
-//        myWindow.setContents(myRow2);
-//        myWindow.setContents(myRow2);
             myWindow.setContents(myCol);
+
+//            myBorder.insert(myRow,0);
+////
+//            myButton.insert(myRow2,0);
+//            myCol.insert(myButton,1);
+////        myWindow.setContents(myRow);
+//            myCol.insert(myBorder,0);
+////        myB.insert(myBorder,0);
+////        myWindow.setContents(myRow);
+////        myWindow.setContents(myRow);
+////        myWindow.setContents(myRow2);
+////        myWindow.setContents(myRow2);
+////        myWindow.setContents(myRow2);
+//            myWindow.setContents(myCol);
         }
 
 
@@ -67,10 +68,10 @@ public class Main {
             myCol.insert(myRow2,1);
             // add border to row2
             myBorder.insert(myRow2,0);
-            // add button to row1
+//            // add button to row1
             myButton.insert(myRow,0);
-            // add label to character a
-            myLabel.insert(c,0);
+//            // add label to character a
+//            myLabel.insert(c,0);
 
             // draw
             myWindow.setContents(myCol);

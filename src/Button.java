@@ -16,7 +16,7 @@ public class Button extends Embellishment {
         this.bounds.yS = cursor.yS;
 
         // ask child to set position
-        this.getChild(0).setPosition(cursor);
+//        this.getChild(0).setPosition(cursor);
 
         // x
         this.bounds.xE = cursor.xS;
@@ -28,18 +28,23 @@ public class Button extends Embellishment {
 
     @Override
     public void updateBounds(Bounds cursor, Bounds child) {
-        // passing the current cursor, and the new bounds of the child
+        if(child == null){
+           // update bounds
+        }
+        else {
+            // passing the current cursor, and the new bounds of the child
 
-        // if row got longer, update bounds and cursor
-        if (this.bounds.xE < child.xE) {
-            this.bounds.xE = child.xE;
-            cursor.xS = child.xE;
+            // if row got longer, update bounds and cursor
+            if (this.bounds.xE < child.xE) {
+                this.bounds.xE = child.xE;
+                cursor.xS = child.xE;
+            }
+            // if row got taller, update bounds but keep cursor the same
+            if (this.bounds.yE < child.yE) {
+                this.bounds.yE = child.yE;
+            }
+//            this.getChild(0).setPosition(cursor);
         }
-        // if row got taller, update bounds but keep cursor the same
-        if (this.bounds.yE < child.yE) {
-            this.bounds.yE = child.yE;
-        }
-        this.getChild(0).setPosition(cursor);
     }
 
     @Override

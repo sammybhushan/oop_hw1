@@ -18,7 +18,7 @@ public class Label extends Embellishment {
         this.bounds.yS = cursor.yS;
 
         // ask child to set position
-        this.getChild(0).setPosition(cursor);
+//        this.getChild(0).setPosition(cursor);
 
         // x
         this.bounds.xE = cursor.xS;
@@ -30,8 +30,11 @@ public class Label extends Embellishment {
 
     @Override
     public void updateBounds(Bounds cursor, Bounds child) {
+        if(child == null){
+            // update bounds only
+        }
         // passing the current cursor, and the new bounds of the child
-
+        else{
         // if row got longer, update bounds and cursor
         if (this.bounds.xE < child.xE) {
             this.bounds.xE = child.xE;
@@ -41,7 +44,8 @@ public class Label extends Embellishment {
         if (this.bounds.yE < child.yE) {
             this.bounds.yE = child.yE;
         }
-        this.getChild(0).setPosition(cursor);
+//        this.getChild(0).setPosition(cursor);
+        }
     }
 
     @Override

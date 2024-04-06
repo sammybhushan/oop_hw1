@@ -80,7 +80,14 @@ public class Rectangle implements Glyph{
     public Bounds getBounds() {
         return bounds;
     }
-        public void setSize(){
+
+    @Override
+    public void setCursor(Bounds cursor) {
+        // will not reach here as rect cannot be composed
+
+    }
+
+    public void setSize(){
         // do nothing; the size of a rectangle is fixed from a compose standpoint
     }
 }

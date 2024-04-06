@@ -74,8 +74,8 @@ public class Character implements Glyph{
         // take the starting x,y location and set bounds accordingly
         this.bounds.xS = cursor.xS;
         this.bounds.yS = cursor.yS;
-        this.bounds.xE = cursor.xS + this.height;
-        this.bounds.yE = cursor.yS + this.width;
+        this.bounds.xE = cursor.xS + this.width;
+        this.bounds.yE = cursor.yS + this.height;
 
         cursor.xS = this.bounds.xE; // update cursor to xS
 //        cursor.xE (un needed???)
@@ -92,5 +92,10 @@ public class Character implements Glyph{
     @Override
     public Bounds getBounds() {
         return bounds;
+    }
+
+    @Override
+    public void setCursor(Bounds cursor) {
+        // dummy
     }
 }

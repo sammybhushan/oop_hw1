@@ -27,16 +27,21 @@ public class Row extends Composition{
         cursor.xE = bounds.xS;
     }
     public void updateBounds(Bounds cursor, Bounds child){
+        if(child == null){
+            // cursor only adjustment
+        }
         // passing the current cursor, and the new bounds of the child
 
         // if row got longer, update bounds and cursor
-        if (this.bounds.xE < child.xE){
-            this.bounds.xE = child.xE;
-            cursor.xS = child.xE;
-        }
-        // if row got taller, update bounds but keep cursor the same
-        if (this.bounds.yE < child.yE){
-            this.bounds.yE = child.yE;
+        else {
+            if (this.bounds.xE < child.xE) {
+                this.bounds.xE = child.xE;
+                cursor.xS = child.xE;
+            }
+            // if row got taller, update bounds but keep cursor the same
+            if (this.bounds.yE < child.yE) {
+                this.bounds.yE = child.yE;
+            }
         }
     }
 }

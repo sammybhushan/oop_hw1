@@ -11,5 +11,7 @@ public interface Glyph {
     Glyph getParent();
     void setParent(Glyph parent);
     void setPosition(Bounds cursor);
+    void setSize();
     Bounds getBounds();
+    void setCursor(Bounds cursor);
 }
