@@ -12,15 +12,18 @@ public abstract class GUIFactory {
                 try {
                     throw new Exception("Look_Feel_Env");
                 }catch(Exception E){
-                    System.out.println("ERR: Look and feel LEXI_LOOK_FEEL env variable undefined");
-                    System.exit(1);
+                    System.out.println("WARNING: Look and feel LEXI_LOOK_FEEL env variable undefined "+
+                            "setting Green by default");
+                    singleFactory = GreenFactory.makeFactory();
+
+                    //System.exit(1);
                 }
             }
             else if(lookFeelType.equals("Green")){
-                singleFactory = new GreenFactory();
+                singleFactory = GreenFactory.makeFactory();
             }
             else if(lookFeelType.equals("Red")){
-                singleFactory = new RedFactory();
+                singleFactory = RedFactory.makeFactory(); //new RedFactory();
             }
             else {
                 try {
